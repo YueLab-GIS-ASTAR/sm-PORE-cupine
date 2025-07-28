@@ -1,0 +1,64 @@
+# user-defined conda environment
+# ---------------------------------
+c_conda_environment: gis
+
+# user-defined paths
+# ---------------------------------
+s_minimap2: /home/users/astar/gis/chengyza/scratch/software/minimap2-2.24_x64-linux/minimap2
+s_samtools: /home/users/astar/gis/chengyza/scratch/software/samtools-1.11/samtools
+s_python: python
+s_sort: sort
+s_fast5_subset: fast5_subset
+s_bgzip: /home/users/astar/gis/chengyza/scratch/software/htslib-1.11/bgzip
+s_tabix: /home/users/astar/gis/chengyza/scratch/software/htslib-1.11/tabix
+s_cudtw: /home/users/astar/gis/chengyza/scratchgrp/chengyza/pline_sigpore/src/cuDTW/main
+
+# user-defined required parameters
+# ---------------------------------
+samples:
+    - name: 230530_12RNAs_30As_35mMNAIN3_WTpool
+      mod: NAIN3
+      reference: ribosxitch
+      dir_nanopore: data/raw/230530_12RNAs_30As_35mMNAIN3_WTpool
+    - name: 220218_WT_17genes
+      mod: Unmod
+      reference: ribosxitch
+      dir_nanopore: data/raw/220218_WT_17genes
+
+references:
+    ribosxitch:
+        f_reference: data/reference/reference_of_ribosxitch_wt_v2-dedup.fa
+        f_hdf5: data/reference/reference_of_ribosxitch_wt_v2-dedup.hdf5
+        f_sizes: data/reference/reference_of_ribosxitch_wt_v2-dedup.sizes
+
+porecupine:
+    230530_12RNAs_30As_35mMNAIN3_WTpool:
+        nu: 1e-3
+        gamma: 2e-1
+        contig: ["YKOK"]
+    220218_WT_17genes:
+        nu: 1e-3
+        gamma: 2e-1
+        contig: ["YKOK"]
+
+porecupine.sample_control_pair:
+    230530_12RNAs_30As_35mMNAIN3_WTpool: 220218_WT_17genes
+    220218_WT_17genes: 220218_WT_17genes
+
+# user-defined optional parameters
+# ---------------------------------
+f_kmer:
+p_kmer_size: 5
+p_threshold_mm2: 0.0
+p_threshold_dtw: 0.09
+p_mapq_modified: 1
+p_mapq_unmodified: 60
+p_norm_zscore_ref: true
+p_norm_zscore_query: true
+p_cudtw_use: false
+p_cudtw_last_k_signal: 256
+p_cudtw_norm_signal_cutoff: -2.0
+p_cudtw_top_k_contigs: 20
+p_cudtw_top_k_mappings: 200
+p_sort_merge_batch_size: 1000
+
