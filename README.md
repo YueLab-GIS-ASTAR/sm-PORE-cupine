@@ -1,7 +1,7 @@
-# sm-PORE-cupine
+sm-PORE-cupine
 ============
 
-Sigpore ingests Oxford Nanopore's Direct RNA sequencing data to automatically detect synthetic chemical probes used to identify RNA nucleotides that are not paired in a secondary structure fashion. These unstructured bases are biochemically reactive to NAIN3, a SHAPE-derivative that is routinely used in the lab for structure probing. Sigpore first uses mappings from both minimap2 and direct signal alignment mapping (subseqDTW) to directly obtain the signal alignment. A previously described outlier-detection algorithm utilizing one-class SVMs, POREcupine, is then used to call these synthetic RNA modifications to obtain a bit-vector read-out. The final output data is presented using a COO sparse matrix format with an accompanying metadata describing the original read identifier, mapping start position and mapped length. Sigpore is a pip distributed snakemake pipeline to help process raw upstream data. It is highly recommended for the user to run the pipeline on a high-performance cluster.
+sm-PORE-cupine ingests Oxford Nanopore's Direct RNA sequencing data to automatically detect synthetic chemical probes used to identify RNA nucleotides that are not paired in a secondary structure fashion. These unstructured bases are biochemically reactive to NAIN3, a SHAPE-derivative that is routinely used in the lab for structure probing. sm-PORE-cupine first uses mappings from both minimap2 and direct signal alignment mapping (subseqDTW) to directly obtain the signal alignment. A previously described outlier-detection algorithm utilizing one-class SVMs, POREcupine, is then used to call these synthetic RNA modifications to obtain a bit-vector read-out. The final output data is presented using a COO sparse matrix format with an accompanying metadata describing the original read identifier, mapping start position and mapped length. sm-PORE-cupine is a pip distributed snakemake pipeline to help process raw upstream data. It is highly recommended for the user to run the pipeline on a high-performance cluster.
 
 Downstream analysis can be found in `analysis/notebooks`. If you would like to run the analysis, you can install the libraries within `analysis/lib/libsigpore` using instructions found [here](#installation)
 
@@ -36,10 +36,10 @@ This will be automatically done during `pip install`
 TL;DR
 ------
 ~~~
-conda create -n sigpore python=3.9
-conda activate sigpore
-git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sigpore
-cd sigpore/sigpore-0.1.0
+conda create -n sm-PORE-cupine python=3.9
+conda activate sm-PORE-cupine
+git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sm-PORE-cupine
+cd sm-PORE-cupine/sm-PORE-cupine-0.1.0
 pip install -e .
 cd ..
 export CPATH=/apps/cuda/targets/x86_64-linux/include:${CPATH}
@@ -52,7 +52,7 @@ cd analysis/lib/libsigpore
 conda install -c bioconda viennarna=2.4.18
 pip install -e .
 cd ../../../
-sigpore run_pipeline -c config/config_example.yaml -q slurm -r config/cluster_example.json -j 4
+sm-PORE-cupine run_pipeline -c config/config_example.yaml -q slurm -r config/cluster_example.json -j 4
 ~~~
 
 
@@ -61,9 +61,9 @@ Installation
 ### Conda/Python ###
 Create a new conda environment. Clone the repository. Enter the directory and perform editable installation using pip. The requirments will automatically download the dependencies using pip.
 ~~~
-conda create -n sigpore python=3.9
-git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sigpore
-cd sigpore/sigpore-0.1.0
+conda create -n sm-PORE-cupine python=3.9
+git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sm-PORE-cupine
+cd sm-PORE-cupine/sm-PORE-cupine-0.1.0
 pip install -e .
 ~~~
 ### Configuration of CUDA Toolkit to user paths and Compilation of cuDTW ###
@@ -88,16 +88,16 @@ Usage
 -----
 Local execution
 ~~~
-sigpore run_pipeline -c <config file> -p 16
+sm-PORE-cupine run_pipeline -c <config file> -p 16
 ~~~
 Before executing, we can utilize snakemake's dry-run feature to generate the DAG to check whether the sequence of tasks that will be executed is correctly formed
 ~~~
-sigpore run_pipeline -c <config file> -p 16 --dry-run
+sm-PORE-cupine run_pipeline -c <config file> -p 16 --dry-run
 ~~~
 
 To run on a slurm cluster
 ~~~
-sigpore run_pipeline -c <config yaml file> -q slurm -r <config cluster json> -j 4
+sm-PORE-cupine run_pipeline -c <config yaml file> -q slurm -r <config cluster json> -j 4
 ~~~
 
 Output folder `tree` description
