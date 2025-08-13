@@ -1,2 +1,2 @@
-_program = "sm-PORE-cupine"
+_program = "smPOREcupine"
 __version__ = "0.1.0"
