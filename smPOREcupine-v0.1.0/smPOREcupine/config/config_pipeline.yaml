@@ -1,0 +1,66 @@
+# user-defined conda environment
+# ---------------------------------
+c_conda_environment: myenv
+
+# user-defined paths
+# ---------------------------------
+s_minimap2: /path/to/minimap2
+s_samtools: /path/to/samtools
+s_python: /path/to/python
+s_sort: /path/to/sort
+s_fast5_subset: /path/to/fast5_subset
+s_bgzip: /path/to/bgzip
+s_tabix: /path/to/tabix
+s_cudtw: /path/to/src/cuDTW/main
+
+# user-defined required parameters
+# ---------------------------------
+samples:
+    - name: DirectRNALib1
+      mod: NAIN3
+      reference: ribosxitch
+      dir_nanopore: /path/to/DirectRNALib1
+    - name: DirectRNALib2
+      mod: Unmod
+      reference: ribosxitch
+      dir_nanopore: /path/to/DirectRNALib2
+
+references:
+    ribosxitch:
+        f_reference: /path/to/fasta
+        f_hdf5: /path/to/hdf5
+        f_sizes: /path/to/sizes
+
+porecupine:
+    DirectRNALib1:
+        nu: 1e-3
+        gamma: 2e-1
+        contig: ["GUA1", "LYSC", "RIBD", "SAM1", "TPP1-ThiM", "YDAO", "YKOK",
+                 "YVRC", "DEN-WT", "FTL6-WT", "MRPS21-Father", "TETRA-WT"]
+    DirectRNALib2:
+        nu: 1e-3
+        gamma: 2e-1
+        contig: ["GUA1", "LYSC", "RIBD", "SAM1", "TPP1-ThiM", "YDAO", "YKOK",
+                 "YVRC", "DEN-WT", "FTL6-WT", "MRPS21-Father", "TETRA-WT"]
+
+porecupine.sample_control_pair:
+    DirectRNALib1: DirectRNALib2
+    DirectRNALib2: DirectRNALib2
+
+
+# user-defined optional parameters
+# ---------------------------------
+f_kmer:
+p_kmer_size: 5
+p_threshold_mm2: 0.0
+p_threshold_dtw: 0.09
+p_mapq_modified: 1
+p_mapq_unmodified: 60
+p_norm_zscore_ref: true
+p_norm_zscore_query: true
+p_cudtw_use: false
+p_cudtw_last_k_signal: 256
+p_cudtw_norm_signal_cutoff: -2.0
+p_cudtw_top_k_contigs: 20
+p_cudtw_top_k_mappings: 200
+p_sort_merge_batch_size: 1000
