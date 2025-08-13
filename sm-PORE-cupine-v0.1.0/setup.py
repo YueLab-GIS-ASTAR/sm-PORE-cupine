@@ -7,19 +7,19 @@ with open("requirements.txt") as f:
 
 # Note: the _program variable is set in __init__.py.
 # it determines the name of the package/final command line tool.
-from sm-PORE-cupine import __version__, _program
+from smPOREcupine import __version__, _program
 
-setup(name="sm-PORE-cupine",
+setup(name="smPOREcupine",
       version=__version__,
-      packages=["sm-PORE-cupine"],
+      packages=["smPOREcupine"],
       description="Pipeline to perform signal alignment of nanopore signal traces to a signal reference",
       entry_points="""
       [console_scripts]
-      {program} = sm-PORE-cupine.execute_workflows:main
+      {program} = smPOREcupine.execute_workflows:main
       """.format(program = _program),
       install_requires=required,
       include_package_data=True,
       package_data={
-          "sm-PORE-cupine": ['Snakefile','config/cluster_pluto.json', 'config/config_env_pluto.yaml']
+          "smPOREcupine": ['Snakefile','config/cluster_pluto.json', 'config/config_env_pluto.yaml']
       },
       keywords=[])
