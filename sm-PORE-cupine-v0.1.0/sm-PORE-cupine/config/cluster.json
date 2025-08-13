@@ -4,7 +4,7 @@
 	"time": "24:00:00",
 	"cpu": 1,
 	"mem": "8g",
-	"email": "chengyza@gis.a-star.edu.sg",
+	"email": "hanjian@gis.a-star.edu.sg",
 	"email_notice": "FAIL",
 	"log_out": "logs/log.out",
 	"log_err": "logs/log.err",
