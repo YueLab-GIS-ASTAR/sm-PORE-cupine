@@ -52,7 +52,7 @@ cd analysis/lib/libsigpore
 conda install -c bioconda viennarna=2.4.18
 pip install -e .
 cd ../../../
-sm-PORE-cupine run_pipeline -c config/config_example.yaml -q slurm -r config/cluster_example.json -j 4
+smPOREcupine run_pipeline -c config/config_example.yaml -q slurm -r config/cluster_example.json -j 4
 ~~~
 
 
@@ -88,16 +88,16 @@ Usage
 -----
 Local execution
 ~~~
-sm-PORE-cupine run_pipeline -c <config file> -p 16
+smPOREcupine run_pipeline -c <config file> -p 16
 ~~~
 Before executing, we can utilize snakemake's dry-run feature to generate the DAG to check whether the sequence of tasks that will be executed is correctly formed
 ~~~
-sm-PORE-cupine run_pipeline -c <config file> -p 16 --dry-run
+smPOREcupine run_pipeline -c <config file> -p 16 --dry-run
 ~~~
 
 To run on a slurm cluster
 ~~~
-sm-PORE-cupine run_pipeline -c <config yaml file> -q slurm -r <config cluster json> -j 4
+smPOREcupine run_pipeline -c <config yaml file> -q slurm -r <config cluster json> -j 4
 ~~~
 
 Output folder `tree` description
