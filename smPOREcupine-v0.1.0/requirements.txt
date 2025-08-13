@@ -1,0 +1,12 @@
+PuLP < 2.8.0
+snakemake == 7.15.2
+pyfaidx >= 0.6.1
+scipy >= 1.5.4
+tslearn >= 0.5.2
+h5py == 3.8.0
+matplotlib >= 3.5.1
+numpy <= 1.21.5
+pandas >= 1.1.5
+ruptures >= 1.1.6
+seaborn >= 0.11.2
+intervaltree >= 3.1.0
