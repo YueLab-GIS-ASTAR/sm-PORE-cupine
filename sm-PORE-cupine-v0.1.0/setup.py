@@ -11,7 +11,7 @@ from sigpore import __version__, _program
 
 setup(name="sigpore",
       version=__version__,
-      packages=["sigpore"],
+      packages=["sm-PORE-cupine"],
       description="Pipeline to perform signal alignment of nanopore signal traces to a signal reference",
       entry_points="""
       [console_scripts]
