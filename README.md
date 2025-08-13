@@ -39,7 +39,7 @@ TL;DR
 conda create -n sm-PORE-cupine python=3.9
 conda activate sm-PORE-cupine
 git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sm-PORE-cupine
-cd sm-PORE-cupine/sm-PORE-cupine-0.1.0
+cd sm-PORE-cupine/smPOREcupine-0.1.0
 pip install -e .
 cd ..
 export CPATH=/apps/cuda/targets/x86_64-linux/include:${CPATH}
@@ -63,7 +63,7 @@ Create a new conda environment. Clone the repository. Enter the directory and pe
 ~~~
 conda create -n sm-PORE-cupine python=3.9
 git clone --recurse-submodules https://github.com/YueLab-GIS-ASTAR/sm-PORE-cupine
-cd sm-PORE-cupine/sm-PORE-cupine-0.1.0
+cd sm-PORE-cupine/smPOREcupine-0.1.0
 pip install -e .
 ~~~
 ### Configuration of CUDA Toolkit to user paths and Compilation of cuDTW ###
